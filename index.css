@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 * {
   margin: 0;
@@ -53,12 +54,34 @@ button {
   width: 191px;
   height: 42px;
   background-color: #10b981;
-  font-size: 16px;
+  font-size: 15px;
   border-radius: 5px;
   border: none;
   margin-bottom: 35px;
 }
 
 hr {
-  border-top: 2px solid #2f3e53;
+  border: 1px solid #2f3e53;
+  margin-bottom: 35px;
+}
+
+.input {
+  display: flex;
+  gap: 24px;
+  /* width: 39px;
+  height: 11px;
+  background-color: #2f3e53; */
+}
+
+.text1,
+.text2 {
+  width: 411px;
+  height: 39px;
+  border: none;
+  background-color: #2f3e53;
+  border-radius: 6px;
+  color: #5def92;
+  text-align: center;
+  font-size: 13px;
+  font-family: "Inter", sans-serif;
 }
