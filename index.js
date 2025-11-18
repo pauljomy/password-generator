@@ -92,35 +92,30 @@ const characters = [
   "/",
 ];
 
-let randomPassword1 = "";
-let randomPassword2 = "";
 const generateButton = document.querySelector("button");
 const inputElement1 = document.querySelector(".text1");
 const inputElement2 = document.querySelector(".text2");
 
 generateButton.addEventListener("click", feedPassword);
 
+function generateRandomIndex() {
+  return Math.floor(Math.random() * characters.length);
+}
+
+function generatePassword(length = 15) {
+  let password1 = "";
+  let password2 = "";
+
+  for (let i = 0; i < length; i++) {
+    password1 += characters[generateRandomIndex()];
+    password2 += characters[generateRandomIndex()];
+  }
+
+  return [password1, password2];
+}
+
 function feedPassword() {
   const [firstPassword, secondPassword] = generatePassword();
   inputElement1.value = firstPassword;
   inputElement2.value = secondPassword;
-  randomPassword1 = "";
-  randomPassword2 = "";
-}
-
-function generateRandomLetter() {
-  for (let i = 0; i < characters.length; i++) {
-    let randomLetter = Math.floor(Math.random() * characters.length);
-    return randomLetter;
-  }
-}
-
-function generatePassword() {
-  for (let i = 0; i < 15; i++) {
-    let randomLetter1 = generateRandomLetter();
-    let randomLetter2 = generateRandomLetter();
-    randomPassword1 += characters[randomLetter1];
-    randomPassword2 += characters[randomLetter2];
-  }
-  return [randomPassword1, randomPassword2];
 }
