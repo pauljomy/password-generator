@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("./assets/fonts/JetBrainsMono-VariableFont_wght.ttf");
+    font-weight: 100 800;
+    font-style: normal;
+}
+
+@theme {
+    --font-mono: "JetBrains Mono", monospace;
+    --color-header: #817d92;
+    --color-background: #08070b;
+    --color-placeholder: #54535b;
+    --color-box-bg: #24232c;
+    --color-btn: #a4ffaf;
+    --color-strength: #817d92;
+    -color-strength-bar: #e6e5ea;
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    background: white;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.checkbox:checked {
+    background-image: url("./assets/img/icon-check.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+}

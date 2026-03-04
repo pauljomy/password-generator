@@ -5,7 +5,90 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="/src/style.css" rel="stylesheet" />
     </head>
-    <body>
-        <h1 class="text-3xl font-bold underline">Hello world!</h1>
+    <body class="font-mono bg-background my-16 text-white">
+        <main class="px-4">
+            <h1 class="text-header text-center mb-4">Password Generator</h1>
+            <div>
+                <div
+                    class="h-15 flex bg-box-bg items-center justify-between p-4 mb-4"
+                >
+                    <p class="text-placeholder text-2xl font-bold">P4$5W0rD</p>
+                    <img
+                        src="/src/assets/img/icon-copy.svg"
+                        alt=""
+                        class="max-w-6 max-h-6"
+                    />
+                </div>
+                <div class="bg-box-bg p-4">
+                    <div class="flex justify-between items-center">
+                        <p>Character Length</p>
+                        <div class="text-2xl items text-btn">0</div>
+                    </div>
+                    <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="0"
+                        class="slider w-full bg-background h-2 curson-pointer appearance-none rounded-full mb-8"
+                    />
+                    <div class="flex gap-4 items-center mb-3">
+                        <input
+                            type="checkbox"
+                            class="h-5 w-5 accent-btn border-2 bg-box-bg appearance-none checked:bg-btn checked:border-btn cursor-pointer checkbox"
+                        />
+                        <p>Include Uppercase Letters</p>
+                    </div>
+                    <div class="flex gap-4 items-center mb-3">
+                        <input
+                            type="checkbox"
+                            class="h-5 w-5 accent-btn border-2 bg-box-bg appearance-none checked:bg-btn checked:border-btn cursor-pointer checkbox"
+                        />
+                        <p>Include Lowercase Letters</p>
+                    </div>
+                    <div class="flex gap-4 items-center mb-3">
+                        <input
+                            type="checkbox"
+                            class="h-5 w-5 accent-btn border-2 bg-box-bg appearance-none checked:bg-btn checked:border-btn cursor-pointer checkbox"
+                        />
+                        <p>Include Numbers</p>
+                    </div>
+                    <div class="flex gap-4 items-center mb-8">
+                        <input
+                            type="checkbox"
+                            class="h-5 w-5 accent-btn border-2 bg-box-bg appearance-none checked:bg-btn checked:border-btn cursor-pointer checkbox"
+                        />
+                        <p>Include Symbols</p>
+                    </div>
+                    <div
+                        class="h-15 flex bg-background items-center justify-between p-4 mb-4"
+                    >
+                        <p class="text-strength text-[1em] font-bold">
+                            STRENGTH
+                        </p>
+                        <div class="flex gap-2">
+                            <div
+                                class="h-7 w-3 border-2 border-strength-bar"
+                            ></div>
+                            <div
+                                class="h-7 w-3 border-2 border-strength-bar"
+                            ></div>
+                            <div
+                                class="h-7 w-3 border-2 border-strength-bar"
+                            ></div>
+                            <div
+                                class="h-7 w-3 border-2 border-strength-bar"
+                            ></div>
+                        </div>
+                    </div>
+
+                        <button class="bg-btn w-full flex items-center text-background justify-center gap-4 py-4">GENERATE<img
+                            src="src/assets/img/icon-arrow-right.svg"
+                            alt=""
+                        /></button
+                        >
+                    </div>
+                </div>
+            </div>
+        </main>
     </body>
 </html>
