@@ -5,9 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="/src/style.css" rel="stylesheet" />
     </head>
-    <body class="font-mono bg-background my-16 text-white">
-        <main class="px-4">
-            <h1 class="text-header text-center mb-4">Password Generator</h1>
+    <body
+        class="font-mono bg-background my-16 text-white md:my-0 flex min-h-screen items-center"
+    >
+        <main class="px-4 md:mx-auto max-w-[33.75em] w-full">
+            <h1 class="text-header text-center mb-4 md:text-2xl">
+                Password Generator
+            </h1>
             <div>
                 <div
                     class="h-15 flex bg-box-bg items-center justify-between p-4 mb-4"
@@ -102,11 +106,11 @@
 
                     <button
                         id="generate-btn"
-                        class="bg-btn w-full flex items-center text-background justify-center gap- py-4"
+                        class="bg-btn w-full flex items-center text-background justify-center gap-2 py-4"
                     >
                         GENERATE<img
                             src="src/assets/img/icon-arrow-right.svg"
-                            alt=""
+                            alt="An right arrow icon"
                         />
                     </button>
                 </div>

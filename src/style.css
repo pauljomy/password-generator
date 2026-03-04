@@ -28,6 +28,10 @@
     cursor: pointer;
 }
 
+.slider:focus {
+    outline: none;
+}
+
 .checkbox:checked {
     background-image: url("./assets/img/icon-check.svg");
     background-position: center;

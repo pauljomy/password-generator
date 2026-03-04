@@ -9,7 +9,6 @@ const symbolsEl = document.getElementById("symbols") as HTMLInputElement;
 const sliderEl = document.getElementById("slider") as HTMLInputElement;
 const charLengthEl = document.getElementById("char-length");
 const strengthElBar = document.querySelectorAll("[data-strength]");
-let passStrength = 0;
 
 sliderEl.addEventListener("input", () => {
   if (charLengthEl) charLengthEl.textContent = sliderEl.value;
@@ -31,7 +30,6 @@ copyEl?.addEventListener("click", copyPassword);
 
 function generateUpperCaseLetters() {
   if (upperCaseEl.checked) {
-    passStrength++;
     return Array.from({ length: 4 }, () => {
       return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
     }).join("");
@@ -40,7 +38,6 @@ function generateUpperCaseLetters() {
 
 function generateLowerCaseLetters() {
   if (lowerCaseEl.checked) {
-    passStrength++;
     return Array.from({ length: 4 }, () =>
       String.fromCharCode(Math.floor(Math.random() * 26) + 97),
     ).join("");
@@ -49,7 +46,6 @@ function generateLowerCaseLetters() {
 
 function generateNums() {
   if (numbersEl.checked) {
-    passStrength++;
     return Array.from({ length: 4 }, () =>
       String.fromCharCode(Math.floor(Math.random() * 10) + 48),
     ).join("");
@@ -69,7 +65,7 @@ function generateSymbols() {
     const thirdSet = Array.from({ length: 1 }, () =>
       String.fromCharCode(Math.floor(Math.random() * 5) + 91),
     ).join("");
-    passStrength++;
+
     return firstSet + secondSet + thirdSet;
   } else return "";
 }
@@ -90,19 +86,59 @@ function generatedPassword() {
   ).join("");
 
   displayGeneratedPass(String(randomPassword));
-
-  passStrength = 0;
 }
-
-generateBtnEl?.addEventListener("click", generatedPassword);
 
 function displayGeneratedPass(password: string) {
   if (generatedPassEl && +sliderEl.value > 0) {
     generatedPassEl.textContent = password;
     generatedPassEl.style.color = "#fff";
-    for (let i = 0; i < passStrength; i++) {
-      (strengthElBar[i] as HTMLElement).style.borderColor = "#F8CD65";
-      (strengthElBar[i] as HTMLElement).style.background = "#F8CD65";
-    }
+    const passStrength = getPassStrength();
+    console.log(passStrength);
+
+    // updatedBarStyle();
   }
 }
+
+generateBtnEl?.addEventListener("click", () => {
+  generatedPassword();
+});
+
+function getPassStrength(): number {
+  return [upperCaseEl, lowerCaseEl, numbersEl, symbolsEl].filter(
+    (el) => el.checked,
+  ).length;
+}
+
+// function updatedBarStyle() {
+//   [upperCaseEl, lowerCaseEl, numbersEl, symbolsEl].forEach((el) => {
+//     el.addEventListener("change", () => {
+//       const passStrength = getPassStrength();
+//       console.log(passStrength);
+//       for (let i = 0; i < passStrength; i++) {
+//         console.log(i);
+//         (strengthElBar[i] as HTMLElement).style.borderColor = "#F8CD65";
+//         (strengthElBar[i] as HTMLElement).style.background = "#F8CD65";
+//       }
+//     });
+//   });
+// }
+
+// updatedBarStyle();
+
+function updateStrengthBars() {
+  const strength = getPassStrength();
+  strengthElBar.forEach((bar, i) => {
+    const el = bar as HTMLElement;
+    if (i < strength) {
+      el.style.background = "#F8CD65";
+      el.style.borderColor = "#F8CD65";
+    } else {
+      el.style.background = "";
+      el.style.borderColor = "";
+    }
+  });
+}
+
+[upperCaseEl, lowerCaseEl, numbersEl, symbolsEl].forEach((el) => {
+  el.addEventListener("change", updateStrengthBars);
+});
