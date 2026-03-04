@@ -12,22 +12,32 @@
                 <div
                     class="h-15 flex bg-box-bg items-center justify-between p-4 mb-4"
                 >
-                    <p class="text-placeholder text-2xl font-bold">P4$5W0rD</p>
-                    <img
-                        src="/src/assets/img/icon-copy.svg"
-                        alt=""
-                        class="max-w-6 max-h-6"
-                    />
+                    <div
+                        id="generated-password"
+                        class="text-placeholder text-2xl font-bold"
+                    >
+                        P4$5W0rD
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="text-btn" id="copied-text"></div>
+                        <img
+                            id="copy"
+                            role="button"
+                            src="/src/assets/img/icon-copy.svg"
+                            alt=""
+                            class="max-w-6 max-h-6"
+                        />
+                    </div>
                 </div>
                 <div class="bg-box-bg p-4">
                     <div class="flex justify-between items-center">
                         <p>Character Length</p>
-                        <div class="text-2xl items text-btn">0</div>
+                        <div class="text-2xl text-btn">0</div>
                     </div>
                     <input
                         type="range"
                         min="0"
-                        max="100"
+                        max="20"
                         value="0"
                         class="slider w-full bg-background h-2 curson-pointer appearance-none rounded-full mb-8"
                     />
@@ -81,14 +91,18 @@
                         </div>
                     </div>
 
-                        <button class="bg-btn w-full flex items-center text-background justify-center gap-4 py-4">GENERATE<img
+                    <button
+                        id="generate-btn"
+                        class="bg-btn w-full flex items-center text-background justify-center gap- py-4"
+                    >
+                        GENERATE<img
                             src="src/assets/img/icon-arrow-right.svg"
                             alt=""
-                        /></button
-                        >
-                    </div>
+                        />
+                    </button>
                 </div>
             </div>
         </main>
+        <script src="/src/main.ts" type="module"></script>
     </body>
 </html>
