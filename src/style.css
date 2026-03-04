@@ -15,7 +15,7 @@
     --color-box-bg: #24232c;
     --color-btn: #a4ffaf;
     --color-strength: #817d92;
-    -color-strength-bar: #e6e5ea;
+    --color-strength-bar: #e6e5ea;
 }
 
 .slider::-webkit-slider-thumb {
