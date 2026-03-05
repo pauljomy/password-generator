@@ -1,121 +1,117 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="/src/style.css" rel="stylesheet" />
-    </head>
-    <body
-        class="font-mono bg-background my-16 text-white md:my-0 flex min-h-screen items-center"
-    >
-        <main class="px-4 md:mx-auto max-w-[33.75em] w-full">
-            <h1 class="text-header text-center mb-4 md:text-2xl">
-                Password Generator
-            </h1>
-            <div>
-                <div
-                    class="h-15 flex bg-box-bg items-center justify-between p-4 mb-4"
-                >
-                    <div
-                        id="generated-password"
-                        class="text-placeholder text-2xl font-bold"
-                    >
-                        P4$5W0rD
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="text-btn" id="copied-text"></div>
-                        <img
-                            id="copy"
-                            role="button"
-                            src="/src/assets/img/icon-copy.svg"
-                            alt=""
-                            class="max-w-6 max-h-6"
-                        />
-                    </div>
-                </div>
-                <div class="bg-box-bg p-4">
-                    <div class="flex justify-between items-center">
-                        <p>Character Length</p>
-                        <div id="char-length" class="text-2xl text-btn">0</div>
-                    </div>
-                    <input
-                        id="slider"
-                        type="range"
-                        min="0"
-                        max="16"
-                        value="0"
-                        class="slider w-full bg-background h-2 curson-pointer appearance-none rounded-full mb-8"
-                    />
-                    <div class="flex gap-4 items-center mb-3">
-                        <input
-                            id="uppercase"
-                            type="checkbox"
-                            class="h-5 w-5 accent-btn border-2 bg-box-bg appearance-none checked:bg-btn checked:border-btn cursor-pointer checkbox"
-                        />
-                        <p>Include Uppercase Letters</p>
-                    </div>
-                    <div class="flex gap-4 items-center mb-3">
-                        <input
-                            id="lowercase"
-                            type="checkbox"
-                            class="h-5 w-5 accent-btn border-2 bg-box-bg appearance-none checked:bg-btn checked:border-btn cursor-pointer checkbox"
-                        />
-                        <p>Include Lowercase Letters</p>
-                    </div>
-                    <div class="flex gap-4 items-center mb-3">
-                        <input
-                            id="numbers"
-                            type="checkbox"
-                            class="h-5 w-5 accent-btn border-2 bg-box-bg appearance-none checked:bg-btn checked:border-btn cursor-pointer checkbox"
-                        />
-                        <p>Include Numbers</p>
-                    </div>
-                    <div class="flex gap-4 items-center mb-8">
-                        <input
-                            id="symbols"
-                            type="checkbox"
-                            class="h-5 w-5 accent-btn border-2 bg-box-bg appearance-none checked:bg-btn checked:border-btn cursor-pointer checkbox"
-                        />
-                        <p>Include Symbols</p>
-                    </div>
-                    <div
-                        class="h-15 flex bg-background items-center justify-between p-4 mb-4"
-                    >
-                        <p class="text-strength text-[1em] font-bold">
-                            STRENGTH
-                        </p>
-                        <div class="flex gap-2">
-                            <div
-                                class="h-7 w-3 border-2 border-strength-bar"
-                                data-strength="1"
-                            ></div>
-                            <div
-                                class="h-7 w-3 border-2 border-strength-bar"
-                                data-strength="1"
-                            ></div>
-                            <div
-                                class="h-7 w-3 border-2 border-strength-bar"
-                                data-strength="1"
-                            ></div>
-                            <div
-                                class="h-7 w-3 border-2 border-strength-bar"
-                                data-strength="1"
-                            ></div>
-                        </div>
-                    </div>
-
-                    <button
-                        id="generate-btn"
-                        class="bg-btn w-full flex items-center text-background justify-center gap-2 py-4"
-                    >
-                        GENERATE<img
-                            src="src/assets/img/icon-arrow-right.svg"
-                            alt="An right arrow icon"
-                        />
-                    </button>
-                </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/src/style.css" rel="stylesheet" />
+  </head>
+  <body
+    class="font-mono bg-background text-white flex min-h-screen items-center"
+  >
+    <main class="px-4 md:mx-auto max-w-[33.75em] w-full">
+      <h1 class="text-header text-center mb-4 md:text-2xl">
+        Password Generator
+      </h1>
+      <div>
+        <div class="h-15 flex bg-box-bg items-center justify-between p-4 mb-4">
+          <div
+            id="generated-password"
+            class="text-placeholder text-2xl font-bold"
+          >
+            P4$5W0rD
+          </div>
+          <div class="flex gap-4">
+            <div class="text-btn" id="copied-text"></div>
+            <img
+              id="copy"
+              role="button"
+              src="/src/assets/img/icon-copy.svg"
+              alt=""
+              class="max-w-6 max-h-6"
+            />
+          </div>
+        </div>
+        <div class="bg-box-bg p-4">
+          <div class="flex justify-between items-center">
+            <p>Character Length</p>
+            <div id="char-length" class="text-2xl text-btn">0</div>
+          </div>
+          <input
+            id="slider"
+            type="range"
+            min="0"
+            max="16"
+            value="0"
+            class="slider w-full bg-background h-2 curson-pointer appearance-none rounded-full mb-8"
+          />
+          <div class="flex gap-4 items-center mb-3">
+            <input
+              id="uppercase"
+              type="checkbox"
+              class="h-5 w-5 accent-btn border-2 bg-box-bg appearance-none checked:bg-btn checked:border-btn cursor-pointer checkbox"
+            />
+            <p>Include Uppercase Letters</p>
+          </div>
+          <div class="flex gap-4 items-center mb-3">
+            <input
+              id="lowercase"
+              type="checkbox"
+              class="h-5 w-5 accent-btn border-2 bg-box-bg appearance-none checked:bg-btn checked:border-btn cursor-pointer checkbox"
+            />
+            <p>Include Lowercase Letters</p>
+          </div>
+          <div class="flex gap-4 items-center mb-3">
+            <input
+              id="numbers"
+              type="checkbox"
+              class="h-5 w-5 accent-btn border-2 bg-box-bg appearance-none checked:bg-btn checked:border-btn cursor-pointer checkbox"
+            />
+            <p>Include Numbers</p>
+          </div>
+          <div class="flex gap-4 items-center mb-8">
+            <input
+              id="symbols"
+              type="checkbox"
+              class="h-5 w-5 accent-btn border-2 bg-box-bg appearance-none checked:bg-btn checked:border-btn cursor-pointer checkbox"
+            />
+            <p>Include Symbols</p>
+          </div>
+          <div
+            class="h-15 flex bg-background items-center justify-between p-4 mb-4"
+          >
+            <p class="text-strength text-[1em] font-bold">STRENGTH</p>
+            <div class="flex gap-2">
+              <div
+                class="h-7 w-3 border-2 border-strength-bar"
+                data-strength="1"
+              ></div>
+              <div
+                class="h-7 w-3 border-2 border-strength-bar"
+                data-strength="1"
+              ></div>
+              <div
+                class="h-7 w-3 border-2 border-strength-bar"
+                data-strength="1"
+              ></div>
+              <div
+                class="h-7 w-3 border-2 border-strength-bar"
+                data-strength="1"
+              ></div>
             </div>
-        </main>
-        <script src="/src/main.ts" type="module"></script>
-    </body>
+          </div>
+
+          <button
+            id="generate-btn"
+            class="bg-btn w-full flex items-center text-background justify-center gap-2 py-4"
+          >
+            GENERATE<img
+              src="src/assets/img/icon-arrow-right.svg"
+              alt="An right arrow icon"
+            />
+          </button>
+        </div>
+      </div>
+    </main>
+    <script src="/src/main.ts" type="module"></script>
+  </body>
 </html>

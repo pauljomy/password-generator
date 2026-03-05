@@ -16,13 +16,19 @@ sliderEl.addEventListener("input", () => {
 
 function copyPassword() {
   const pass = generatedPassEl?.textContent.trim();
-  if (copiedTextEl) {
-    copiedTextEl.textContent = "COPIED";
 
-    setTimeout(() => {
-      copiedTextEl.textContent = "";
-    }, 1000);
-  }
+  if (!pass) return;
+
+  navigator.clipboard.writeText(pass).then(() => {
+    if (copiedTextEl) {
+      copiedTextEl.textContent = "COPIED";
+
+      setTimeout(() => {
+        copiedTextEl.textContent = "";
+      }, 1000);
+    }
+  });
+
   console.log(pass);
 }
 
