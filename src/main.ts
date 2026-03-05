@@ -18,18 +18,22 @@ sliderEl.addEventListener("input", () => {
 
 function copyPassword() {
   const pass = generatedPassEl?.textContent.trim();
+  const passStrength = getPassStrength();
+  console.log(passStrength);
 
   if (!pass) return;
 
-  navigator.clipboard.writeText(pass).then(() => {
-    if (copiedTextEl) {
-      copiedTextEl.textContent = "COPIED";
+  if (passStrength > 0) {
+    navigator.clipboard.writeText(pass).then(() => {
+      if (copiedTextEl) {
+        copiedTextEl.textContent = "COPIED";
 
-      setTimeout(() => {
-        copiedTextEl.textContent = "";
-      }, 1000);
-    }
-  });
+        setTimeout(() => {
+          copiedTextEl.textContent = "";
+        }, 1000);
+      }
+    });
+  }
 
   console.log(pass);
 }
@@ -116,22 +120,6 @@ function getPassStrength(): number {
     (el) => el.checked,
   ).length;
 }
-
-// function updatedBarStyle() {
-//   [upperCaseEl, lowerCaseEl, numbersEl, symbolsEl].forEach((el) => {
-//     el.addEventListener("change", () => {
-//       const passStrength = getPassStrength();
-//       console.log(passStrength);
-//       for (let i = 0; i < passStrength; i++) {
-//         console.log(i);
-//         (strengthElBar[i] as HTMLElement).style.borderColor = "#F8CD65";
-//         (strengthElBar[i] as HTMLElement).style.background = "#F8CD65";
-//       }
-//     });
-//   });
-// }
-
-// updatedBarStyle();
 
 function updateStrengthBars() {
   const strength = getPassStrength();
