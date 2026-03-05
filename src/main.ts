@@ -23,7 +23,7 @@ function copyPassword() {
 
   if (!pass) return;
 
-  if (passStrength > 0 && +sliderEl.value > 0) {
+  if (passStrength > 0 && +sliderEl.value > 0 && pass != "P4$5W0rD") {
     navigator.clipboard.writeText(pass).then(() => {
       if (copiedTextEl) {
         copiedTextEl.textContent = "COPIED";
