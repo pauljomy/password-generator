@@ -12,6 +12,8 @@ const strengthElBar = document.querySelectorAll("[data-strength]");
 
 sliderEl.addEventListener("input", () => {
   if (charLengthEl) charLengthEl.textContent = sliderEl.value;
+  const percent = (+sliderEl.value / +sliderEl.max) * 100;
+  sliderEl.style.background = `linear-gradient(to right, #a4ffaf ${percent}%, #08070b ${percent}%)`;
 });
 
 function copyPassword() {
