@@ -58,7 +58,7 @@ function generateLowerCaseLetters() {
 
 function generateNums() {
   if (numbersEl.checked) {
-    return Array.from({ length: 4 }, () =>
+    return Array.from({ length: 10 }, () =>
       String.fromCharCode(Math.floor(Math.random() * 10) + 48),
     ).join("");
   } else return "";
@@ -66,15 +66,15 @@ function generateNums() {
 
 function generateSymbols() {
   if (symbolsEl.checked) {
-    const firstSet = Array.from({ length: 1 }, () =>
+    const firstSet = Array.from({ length: 15 }, () =>
       String.fromCharCode(Math.floor(Math.random() * 15) + 33),
     ).join("");
 
-    const secondSet = Array.from({ length: 2 }, () =>
+    const secondSet = Array.from({ length: 7 }, () =>
       String.fromCharCode(Math.floor(Math.random() * 7) + 58),
     ).join("");
 
-    const thirdSet = Array.from({ length: 1 }, () =>
+    const thirdSet = Array.from({ length: 5 }, () =>
       String.fromCharCode(Math.floor(Math.random() * 5) + 91),
     ).join("");
 
